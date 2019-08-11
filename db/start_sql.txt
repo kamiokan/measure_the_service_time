@@ -1,0 +1,51 @@
+20190811_cakephp3セットアップ（施術時間計測プロトタイプ）
+
+composer self-update && composer create-project --prefer-dist cakephp/app service_time
+
+■MySQL版
+CREATE TABLE reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    menu_id INT NOT NULL,
+    created DATETIME,
+    modified DATETIME
+) CHARSET=utf8mb4;
+
+CREATE TABLE service_times (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reservation_id INT NOT NULL,
+    start_time DATETIME,
+    end_time DATETIME,
+    created DATETIME,
+    modified DATETIME
+    FOREIGN KEY reservation_key (reservation_id) REFERENCES reservations(id)
+);
+
+INSERT INTO reservations (user_id, menu_id, created, modified)
+VALUES
+(1, 2, now(), now()),(2, 2, now(), now()),(3, 1, now(), now()),(4, 2, now(), now()),(5, 2, now(), now());
+
+
+
+■SQLite版
+CREATE TABLE reservations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    menu_id INTEGER NOT NULL,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modified DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE service_times (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    reservation_id INTEGER NOT NULL,
+    start_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    end_time DATETIME,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modified DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (reservation_id) REFERENCES reservations(id)
+);
+
+INSERT INTO reservations (user_id, menu_id)
+VALUES
+(1, 2),(2, 2),(3, 1),(4, 2),(5, 2);

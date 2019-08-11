@@ -5,6 +5,7 @@
 /logs/*
 /tmp/*
 /vendor/*
+/db/*.db
 
 # OS generated files #
 ######################
