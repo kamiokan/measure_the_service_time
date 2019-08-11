@@ -16,6 +16,7 @@ CREATE TABLE service_times (
     reservation_id INT NOT NULL,
     start_time DATETIME,
     end_time DATETIME,
+    elapsed_time DATETIME,
     created DATETIME,
     modified DATETIME
     FOREIGN KEY reservation_key (reservation_id) REFERENCES reservations(id)
@@ -41,6 +42,7 @@ CREATE TABLE service_times (
     reservation_id INTEGER NOT NULL,
     start_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     end_time DATETIME,
+    elapsed_time DATETIME,
     created DATETIME DEFAULT CURRENT_TIMESTAMP,
     modified DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (reservation_id) REFERENCES reservations(id)
