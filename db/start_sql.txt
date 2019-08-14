@@ -13,7 +13,7 @@ CREATE TABLE reservations (
 
 CREATE TABLE service_times (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    reservation_id INT NOT NULL,
+    reservation_id INT UNIQUE NOT NULL,
     start_time DATETIME,
     end_time DATETIME,
     elapsed_time DATETIME,
@@ -39,7 +39,7 @@ CREATE TABLE reservations (
 
 CREATE TABLE service_times (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    reservation_id INTEGER NOT NULL,
+    reservation_id INTEGER UNIQUE NOT NULL,
     start_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     end_time DATETIME,
     elapsed_time DATETIME,
