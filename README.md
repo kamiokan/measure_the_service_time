@@ -7,10 +7,10 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 
 ## 画面
 
-###1. 予約一覧の画面
+### 1. 予約一覧の画面
 ![schedules_display](https://user-images.githubusercontent.com/25732571/63008227-24fa7180-bebd-11e9-8949-33fc3f54c201.png)
 
-###2. 接客時間一覧の画面 
+### 2. 接客時間一覧の画面 
 ![service_time_display](https://user-images.githubusercontent.com/25732571/63008209-1dd36380-bebd-11e9-9eda-dd6b3328bbd7.png)
 
 ## Todo
