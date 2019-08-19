@@ -5,6 +5,7 @@
         <th>サービス開始日時</th>
         <th>サービス終了日時</th>
         <th>経過時間</th>
+        <th>編集</th>
     </tr>
 
     <!-- ここで、$articles クエリーオブジェクトを繰り返して、記事の情報を出力します -->
@@ -28,6 +29,9 @@
                 <?php if ($st->elapsed_time) {
                     echo $st->elapsed_time->format('H:i:s');
                 } ?>
+            </td>
+            <td>
+                <?= $this->Html->link('編集', ['action' => 'edit', $st->reservation_id]) ?>
             </td>
         </tr>
     <?php endforeach; ?>
